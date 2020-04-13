@@ -1,6 +1,10 @@
+import React, { Component } from 'react';
 import App from 'next/app';
 import Head from 'next/head';
 import { AppProvider } from '@shopify/polaris';
+import '@shopify/polaris/styles.css';
+import translationEn from '@shopify/polaris/locales/en.json';
+import translationEs from '@shopify/polaris/locales/es.json';
 
 class MyApp extends Component {
     state = {  }
@@ -12,7 +16,7 @@ class MyApp extends Component {
                     <title>Sample App</title>
                     <meta charSet="utf-8" />
                 </Head>
-                <AppProvider>
+                <AppProvider i18n={translationEn}>
                     <Component {...pageProps} />
                 </AppProvider>
             </React.Fragment>
