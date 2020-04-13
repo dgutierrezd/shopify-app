@@ -26,6 +26,11 @@ app.prepare().then(() => {
             scopes: ['read_products'],
             afterAuth(ctx) {
                 const { shop, accesToken } = ctx.session;
+                ctx.cookies.set('shopOrigin', shop, {
+                    httpOnly: false,
+                    secure: true,
+                    sameSite: 'none'
+                })
                 ctx.redirect('/');
             }
         })
