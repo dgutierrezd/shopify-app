@@ -7,6 +7,8 @@ import "@shopify/polaris/styles.css";
 import translationEn from "@shopify/polaris/locales/en.json";
 import translationEs from "@shopify/polaris/locales/es.json";
 import Cookies from 'js-cookie';
+import { ApolloProvider } from 'react-apollo';
+import client from "../graphql/ApolloClient";
 
 class MyApp extends Component {
   state = {};
@@ -21,7 +23,9 @@ class MyApp extends Component {
         </Head>
         <Provider config={config}>
           <AppProvider i18n={translationEn}>
-            <Component {...pageProps} />
+            <ApolloProvider client={client}>
+                <Component {...pageProps} />
+            </ApolloProvider>
           </AppProvider>
         </Provider>
       </React.Fragment>
